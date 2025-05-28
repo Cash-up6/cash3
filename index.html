@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .form-container h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #2c7be5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #1a5ecc;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="logo">
+    <a href="https://yourcompanywebsite.com" target="_blank">
+      <img src="https://i.ibb.co/WCy0h9t/Whats-App-Image-2025-05-28-at-15-49-29-f0ce2e6b.jpg">
+    </a>
+  </div>
+
+  <h2>Apply for Loan<br><span style="font-size: 16px;">ණය ඉල්ලීම</span></h2>
+
+  <label for="phone">Phone Number / දුරකථන අංකය</label>
+  <input type="text" id="phone" placeholder="Enter 10-digit phone number">
+
+  <label for="idNumber">ID Number / හැඳුනුම්පත් අංකය</label>
+  <input type="text" id="idNumber" placeholder="Enter 9-12 digit ID number">
+
+  <button class="btn" onclick="submitForm()">Apply / අයදුම් කරන්න</button>
+
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+  function submitForm() {
+    const phone = document.getElementById("phone").value.trim();
+    const idNumber = document.getElementById("idNumber").value.trim();
+    const message = document.getElementById("message");
+
+    // Phone should be exactly 10 digits
+    const phoneValid = /^\d{10}$/.test(phone);
+    // ID should be between 9 and 12 digits
+    const idValid = /^\d{9,12}$/.test(idNumber);
+
+    if (phoneValid && idValid) {
+      message.style.color = "green";
+      message.textContent = "Form submitted successfully!";
+    } else {
+      message.style.color = "red";
+      message.textContent = "Invalid phone or ID number.";
+    }
+  }
+</script>
+
+</body>
+</html>
